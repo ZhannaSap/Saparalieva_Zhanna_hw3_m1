@@ -13,7 +13,7 @@ public class BankAccount {
     public void withDraw(int sum) throws LimitExeption {
         if (sum>amount){
             throw new LimitExeption("Сумма снимаемых денег"
-                    + " превышает оставшуюся сумму. На вашем аккаунте осталось: "+ this.amount, this.amount);
+                    + " превышает оставшуюся сумму. ", this.amount);
         }
         amount -= sum;
     }

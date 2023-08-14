@@ -10,11 +10,11 @@ public class Main {
             } catch (LimitExeption e) {
                 System.out.println(e.getMessage());
                 try {
-                    bankAccount.withDraw((int)e.getRemainingAmount());
+                    bankAccount.withDraw((int) bankAccount.getAmount());
                 }catch (LimitExeption ae){
-                    System.out.println(ae.getMessage());
-
+                    throw new RuntimeException(ae);
                 }
+                System.out.println("У вас на счету: " + bankAccount.getAmount());
                 break;
             }
 
