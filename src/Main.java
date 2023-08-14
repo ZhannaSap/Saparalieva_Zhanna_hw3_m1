@@ -9,9 +9,15 @@ public class Main {
                 System.out.println("Деньги успешно сняты со счёта. У вас на счету осталось: " + bankAccount.getAmount());
             } catch (LimitExeption e) {
                 System.out.println(e.getMessage());
-                System.out.println("Оставшаяся сумма успешно снята со счета.");
+                try {
+                    bankAccount.withDraw((int)e.getRemainingAmount());
+                }catch (LimitExeption ae){
+                    System.out.println(ae.getMessage());
+
+                }
                 break;
             }
+
         }
     }
 }
